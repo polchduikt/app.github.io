@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тортики & Тістечка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Тортики <span>&</span> Тістечка</h1>
+    </div>
+
+    <input type="radio" name="filter" id="filter-all" class="filter-radio" checked>
+    <input type="radio" name="filter" id="filter-pirig" class="filter-radio">
+    <input type="radio" name="filter" id="filter-rulet" class="filter-radio">
+    <input type="radio" name="filter" id="filter-sirniki" class="filter-radio">
+    <input type="radio" name="filter" id="filter-tistechko" class="filter-radio">
+    <input type="radio" name="filter" id="filter-tort" class="filter-radio">
+
+    <div class="filters">
+        <label for="filter-pirig" class="filter-btn">Пиріг</label>
+        <label for="filter-rulet" class="filter-btn">Рулет</label>
+        <label for="filter-sirniki" class="filter-btn">Сирники</label>
+        <label for="filter-tistechko" class="filter-btn">Тістечко</label>
+        <label for="filter-tort" class="filter-btn">Торт</label>
+        <label for="filter-all" class="filter-btn">Скинути фільтр</label>
+    </div>
+
+    <div class="pastry-grid">
+        <div class="pastry-card" data-type="Торт">
+            <img src="image/1.jpg" alt="Сметанковий торт" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Торт:</div>
+                <div class="pastry-name">Сметанковий</div>
+            </div>
+        </div>
+
+        <div class="pastry-card" data-type="Тістечко">
+            <img src="image/2.jpg" alt="Мафін" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Тістечко:</div>
+                <div class="pastry-name">Мафін</div>
+            </div>
+        </div>
+
+        <div class="pastry-card" data-type="Сирники">
+            <img src="image/3.jpeg" alt="Сирники три ягоди" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Сирники:</div>
+                <div class="pastry-name">Три ягоди</div>
+            </div>
+        </div>
+
+        <div class="pastry-card" data-type="Торт">
+            <img src="image/4.jpg" alt="Смачний торт" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Торт:</div>
+                <div class="pastry-name">Смачний</div>
+            </div>
+        </div>
+
+        <div class="pastry-card" data-type="Рулет">
+            <img src="image/5.jpg" alt="Святковий рулет" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Рулет:</div>
+                <div class="pastry-name">Святковий</div>
+            </div>
+        </div>
+
+        <div class="pastry-card" data-type="Пиріг">
+            <img src="image/6.jpg" alt="Пиріг свято у бабусі" class="pastry-image">
+            <div class="pastry-info">
+                <div class="pastry-type">Пиріг:</div>
+                <div class="pastry-name">Свято у бабусі</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <p>Контакти:</p>
+            <a href="mailto:smakolik@smakota.ua">smakolik@smakolik.ua</a>
+        </div>
+        <p>© 2024 Smakolik</p>
+    </footer>
+</body>
+</html>

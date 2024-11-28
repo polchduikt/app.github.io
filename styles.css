@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #333;
+    font-weight: lighter;
+}
+
+.header span {
+    color: #e74c3c;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-direction: row-reverse;
+}
+
+.filters {
+    flex: 0 0 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.filters h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.calories-filter {
+    margin-bottom: 20px;
+}
+
+.range-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.pastry-calories {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
+
+.calories-filter {
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.range-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.double-slider {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.range {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.range-min {
+    pointer-events: auto;
+    z-index: 3;
+}
+
+.range-max {
+    pointer-events: auto;
+    z-index: 4;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2980b9;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+}
+
+.range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2980b9;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+}
+
+.range::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2980b9;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #ddd;
+    border-radius: 5px;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.filter-radio {
+    display: none;
+}
+
+.filter-btn {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #ddd;
+}
+
+.filter-radio:checked+.filter-btn {
+    background-color: #e0f0ff;
+    color: #2980b9;
+}
+
+.pastry-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pastry-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.pastry-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+#filter-pirig:checked~.pastry-grid .pastry-card[data-type="Пиріг"],
+#filter-rulet:checked~.pastry-grid .pastry-card[data-type="Рулет"],
+#filter-sirniki:checked~.pastry-grid .pastry-card[data-type="Сирники"],
+#filter-tistechko:checked~.pastry-grid .pastry-card[data-type="Тістечко"],
+#filter-tort:checked~.pastry-grid .pastry-card[data-type="Торт"] {
+    display: block;
+}
+
+#filter-all:checked~.pastry-grid .pastry-card {
+    display: block;
+}
+
+#filter-all:not(:checked)~.pastry-grid .pastry-card {
+    display: none;
+}
+
+.pastry-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.pastry-info {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.pastry-type {
+    color: #666;
+    font-size: 14px;
+}
+
+.pastry-name {
+    font-weight: bold;
+    margin-left: 5px;
+    color: #3880af;
+}
+
+.pastry-calories {
+    padding: 15px;
+    margin-top: -15px;
+    font-size: 14px;
+    color: #555;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    padding: 20px 5px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+footer a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.footer-right {
+    margin: 0;
+}
+
+@media (max-width: 730px) {
+    .filters {
+        background: none;
+        box-shadow: none;
+        flex: 0 0 auto;
+        margin-bottom: 10px;
+        position: relative;
+        top: 0;
+        padding: 10px;
+        width: auto;
+    }
+
+    .filters h3 {
+        display: none;
+    }
+
+    .calories-filter {
+        display: none;
+    }
+
+    .filters label {
+        display: inline-block;
+        width: calc(50% - 10px);
+        margin-bottom: 10px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .pastry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pastry-name,
+    .pastry-type,
+    .pastry-calories {
+        display: none;
+    }
+
+    .pastry-card {
+        display: block;
+        border: none;
+        box-shadow: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pastry-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 15px;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-right {
+        align-self: flex-start;
+    }
+
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-left p,
+    .footer-left .email {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1200px) {
+    .content-wrapper {
+        display: block;
+    }
+
+    .filters {
+        flex: 0 0 300px;
+        background: none;
+        box-shadow: none;
+        padding: 20px;
+        position: relative;
+        top: 0;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .filters h3 {
+        display: none;
+    }
+
+    .calories-filter {
+        display: none;
+    }
+
+    .filter-btn {
+        display: inline-block;
+        width: calc(33.33% - 10px);
+        margin-bottom: 10px;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .pastry-grid {
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 20px;
+    }
+
+    .pastry-card {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .pastry-calories {
+        display: none;
+    }
+
+    .pastry-card {
+        height: auto;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-left p,
+    .footer-left a {
+        margin: 0;
+    }
+}
